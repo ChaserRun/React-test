@@ -1,38 +1,17 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { Layout, Menu, Row, Col, Button, Input } from 'antd';
 import './index.css';
 
 const Search = Input.Search;
 const { Header, Content, Footer } = Layout;
 
-
 class IndexPage extends Component {
-
-    defaultOptions = {
-        skillMap:['PHP', 'JAVA', 'NodeJs', 'web前端'],
-        toolMap:['IP转换', '正则转换', '时间转换']
-    }
-
-    renderOverLay = (items) => {
-        return (
-            <Menu>
-                {items.map((item, key) => {
-                    return (
-                        <Menu.Item key={ key } >
-                            <Link to={'#'}>{ item }</Link>
-                        </Menu.Item>
-                    )
-                })}
-            </Menu>
-        )
-    }
     render () {
-        console.log('=======>', this.props)
+        console.log('props=====>', this.props)
         return (
-            <Layout className="layout">
+            <Layout className="layout" style={{background:'#f3f3f3'}}>
                 <Header>
-                    <Row>
+                    <Row style={{width:1200,margin:'0 auto'}}>
                         <Col span={3}><div className="logo" style={{color:'#fff', fontSize:'16px'}}>起航博客</div></Col>
                         <Col span={15}>
                             <Row>
@@ -46,13 +25,12 @@ class IndexPage extends Component {
                                         <Menu.Item key="1">首页</Menu.Item>
                                         <Menu.Item key="2">技术站</Menu.Item>
                                         <Menu.Item key="3">工具</Menu.Item>
-                                        <Menu.Item key="4">知识问答</Menu.Item>
                                     </Menu>
                                 </Col>
                                 <Col span={12} style={{textAlign: 'right'}}>
                                     <Search
                                         placeholder="请输入关键字"
-                                        style={{ width: 200 }}
+                                        style={{ width: 280 }}
                                     />
                                 </Col>
                             </Row>
@@ -65,15 +43,8 @@ class IndexPage extends Component {
                         </Col>
                     </Row>
                 </Header>
-                <Content style={{padding: '0 50px'}}>
-                    <Row className={'content'}>
-                        <Col span={18}>
-                            博客列表
-                        </Col>
-                        <Col span={6}>
-                            侧边
-                        </Col>
-                    </Row>
+                <Content style={{padding: '50px'}}>
+                    { this.props.children }
                 </Content>
                 <Footer style={{textAlign: 'center'}}>
                     Ant Design ©2016 Created by Ant UED
@@ -83,4 +54,4 @@ class IndexPage extends Component {
     }
 }
 
-export default IndexPage
+export default IndexPage;

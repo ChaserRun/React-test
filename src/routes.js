@@ -9,6 +9,8 @@ class App extends Component {
             <Router>
                 <Switch>
                     <Route exact path={'/'} component={IndexPage}/>
+                    <Route path={'/technicalStation'} component={'TechnicalStation'}/>
+                    <Route path={'/tool'} component={'Tool'}/>
                 </Switch>
             </Router>
         );
