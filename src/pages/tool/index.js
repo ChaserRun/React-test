@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Row, Col } from 'antd';
 
-class TechnicalStation extends Component {
+class Tool extends Component {
     render () {
         console.log('props===>', this.props);
         return (
@@ -13,4 +13,4 @@ class TechnicalStation extends Component {
     }
 }
 
-export default connect(state => state.TechnicalStationData)(TechnicalStation);
+export default connect(state => state.ToolData)(Tool);

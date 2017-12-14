@@ -10,6 +10,7 @@ import registerServiceWorker from './registerServiceWorker';
 
 const middleware = [thunk];
 const store = createStore(Reducers, applyMiddleware(...middleware));
+
 ReactDOM.render(
     <Provider store={store}>
         <App />

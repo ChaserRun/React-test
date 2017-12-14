@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Layout, Menu, Row, Col, Button, Input } from 'antd';
+import { connect } from 'react-redux';
+import { Menu, Row, Col } from 'antd';
 import './index.css';
 
 import List from './bogoList';
 import SideBar from './sideBar';
 import * as Data from  './data';
 
-const Search = Input.Search;
-const { Header, Content, Footer } = Layout;
+//const Search = Input.Search;
+//const { Header, Content, Footer } = Layout;
 
 class IndexContent extends Component {
 
@@ -31,7 +32,7 @@ class IndexContent extends Component {
         )
     }
     render () {
-        console.log('=======>', this.props)
+        console.log('index=======>', this.props)
         return (
             <Row className={'content'} style={{width:1200,margin:'0 auto'}}>
                 <Col span={16}>
@@ -47,4 +48,4 @@ class IndexContent extends Component {
     }
 }
 
-export default IndexContent;
+export default connect(state => state.IndexData)(IndexContent);

@@ -1,8 +1,8 @@
 import * as TYPE from '../actions/type';
 
-const TechnicalStationData = (state = {}, action) => {
+const ToolData = (state = {}, action) => {
     switch(action.type) {
-        case TYPE.TECHNICAL:
+        case TYPE.TOOL:
             return Object.assign({}, state, action.data);
             break;
         default:
@@ -10,4 +10,4 @@ const TechnicalStationData = (state = {}, action) => {
     }
 }
 
-export default TechnicalStationData;
+export default ToolData;

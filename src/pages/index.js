@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 import { Layout, Menu, Row, Col, Button, Input } from 'antd';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import IndexContent from '../pages/indexPage/index';
 import './index.css';
 
 const Search = Input.Search;
 const { Header, Content, Footer } = Layout;
 
 class IndexPage extends Component {
+
+    defaultOptions = {
+        defaultSelectedKeys:'1'
+    }
     render () {
         console.log('props=====>', this.props)
         return (
@@ -19,12 +26,12 @@ class IndexPage extends Component {
                                     <Menu
                                         theme="dark"
                                         mode="horizontal"
-                                        defaultSelectedKeys={['2']}
+                                        defaultSelectedKeys={[this.defaultOptions.defaultSelectedKeys]}
                                         style={{lineHeight: '64px'}}
                                     >
-                                        <Menu.Item key="1">首页</Menu.Item>
-                                        <Menu.Item key="2">技术站</Menu.Item>
-                                        <Menu.Item key="3">工具</Menu.Item>
+                                        <Menu.Item key="1"><Link to={'/'}>首页</Link></Menu.Item>
+                                        <Menu.Item key="2"><Link to={'/technicalStation'}>技术站</Link></Menu.Item>
+                                        <Menu.Item key="3"><Link to={'/tool'}>工具</Link></Menu.Item>
                                     </Menu>
                                 </Col>
                                 <Col span={12} style={{textAlign: 'right'}}>
@@ -44,7 +51,7 @@ class IndexPage extends Component {
                     </Row>
                 </Header>
                 <Content style={{padding: '50px'}}>
-                    { this.props.children }
+                    { this.props.children || <IndexContent/> }
                 </Content>
                 <Footer style={{textAlign: 'center'}}>
                     Ant Design ©2016 Created by Ant UED
@@ -54,4 +61,4 @@ class IndexPage extends Component {
     }
 }
 
-export default IndexPage;
+export default connect(state => state)(IndexPage);
