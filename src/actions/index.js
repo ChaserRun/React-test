@@ -9,3 +9,14 @@ export const index = (data) => {
         data: data
     }
 }
+
+export const fetchBlogList = () => {
+    return fetch.getData(API.getBlogList).then(data => {
+        console.log('actionData=>', data);
+        if (data && data.code == 1) {
+            return data;
+        } else {
+            return message.error(data.msg);
+        }
+    })
+}

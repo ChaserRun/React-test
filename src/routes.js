@@ -1,20 +1,23 @@
 import React, { Component } from 'react';
-import { Switch, Route, HashRouter as Router , IndexRoute } from 'react-router-dom';
+import { HashRouter, Switch, Route, HashRouter as Router } from 'react-router-dom';
 import Layout from './pages/index';
-import TechnicalStation from './pages/technicalStation/index';
-import Tool from './pages/tool/index';
+import IndexContent from './pages/indexPage'
+import TechnicalStation from './pages/technicalStation';
+import Tool from './pages/tool';
 //import logo from './logo.svg';
 
 class App extends Component {
     render() {
         return (
-            <Router>
-                <Switch>
-                    <Route exact path={'/'} component={Layout}></Route>
-                    <Route path={'technicalStation'} component={TechnicalStation} />
-                    <Route path={'tool'} component={Tool} />
-                </Switch>
-            </Router>
+            <HashRouter>
+                <Layout>
+                    <Switch>
+                        <Route exact path={'/'} component={IndexContent} />
+                        <Route path={'/technicalStation'} component={TechnicalStation} />
+                        <Route path={'/tool'} component={Tool} />
+                    </Switch>
+                </Layout>
+            </HashRouter>
         );
     }
 }

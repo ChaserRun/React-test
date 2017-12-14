@@ -7,7 +7,7 @@ class TechnicalStation extends Component {
         console.log('props===>', this.props);
         return (
             <Row>
-                <Col>tool</Col>
+                <Col>TechnicalStation</Col>
             </Row>
         )
     }

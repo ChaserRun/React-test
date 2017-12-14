@@ -13,8 +13,13 @@ class IndexPage extends Component {
     defaultOptions = {
         defaultSelectedKeys:'1'
     }
+    selectNav = (e) => {
+        this.setState({
+            defaultSelectedKeys: e.key
+        })
+    }
     render () {
-        console.log('props=====>', this.props)
+        console.log('props=======>', this.props);
         return (
             <Layout className="layout" style={{background:'#f3f3f3'}}>
                 <Header>
@@ -24,6 +29,7 @@ class IndexPage extends Component {
                             <Row>
                                 <Col span={12}>
                                     <Menu
+                                        onClick={(e) => this.selectNav(e)}
                                         theme="dark"
                                         mode="horizontal"
                                         defaultSelectedKeys={[this.defaultOptions.defaultSelectedKeys]}
@@ -51,7 +57,7 @@ class IndexPage extends Component {
                     </Row>
                 </Header>
                 <Content style={{padding: '50px'}}>
-                    { this.props.children || <IndexContent/> }
+                    { this.props.children }
                 </Content>
                 <Footer style={{textAlign: 'center'}}>
                     Ant Design ©2016 Created by Ant UED

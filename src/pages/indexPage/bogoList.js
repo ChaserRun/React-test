@@ -4,7 +4,7 @@ import * as Data from  './data';
 
 class List extends Component {
     render () {
-        console.log('Data=====>', Data.bokeListData);
+        //console.log('Data=====>', Data.bokeListData);
         return (
             <div>
                 <Card bordered={true} hoverable={true} style={{margin:'0 0 30px 0',borderRadius:4}}>

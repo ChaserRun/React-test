@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Menu, Row, Col } from 'antd';
+import * as ACTIONS from '../../actions/index';
 import './index.css';
 
 import List from './bogoList';
@@ -31,6 +32,18 @@ class IndexContent extends Component {
             </Menu>
         )
     }
+
+    getBlogList = (params = {}) => {
+        ACTIONS.fetchBlogList(params).then(data => {
+            console.log('====>', data);
+            this.props.dispatch(ACTIONS.index({indexData:data}))
+        })
+    }
+
+    componentDidMount () {
+        this.getBlogList();
+    }
+
     render () {
         console.log('index=======>', this.props)
         return (
