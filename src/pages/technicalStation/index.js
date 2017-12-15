@@ -4,7 +4,8 @@ import { Row, Col } from 'antd';
 
 class TechnicalStation extends Component {
     render () {
-        console.log('props===>', this.props);
+
+        console.log('技术栈===>', this.props);
         return (
             <Row>
                 <Col>TechnicalStation</Col>

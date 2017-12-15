@@ -35,7 +35,6 @@ class IndexContent extends Component {
 
     getBlogList = (params = {}) => {
         ACTIONS.fetchBlogList(params).then(data => {
-            console.log('====>', data);
             this.props.dispatch(ACTIONS.index({indexData:data}))
         })
     }
@@ -45,7 +44,7 @@ class IndexContent extends Component {
     }
 
     render () {
-        console.log('index=======>', this.props)
+        console.log('首页===>', this.props)
         return (
             <Row className={'content'} style={{width:1200,margin:'0 auto'}}>
                 <Col span={16}>

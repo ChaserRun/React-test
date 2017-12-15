@@ -4,7 +4,7 @@ import { Row, Col } from 'antd';
 
 class Tool extends Component {
     render () {
-        console.log('props===>', this.props);
+        console.log('工具===>', this.props);
         return (
             <Row>
                 <Col>tool</Col>
