@@ -18,8 +18,8 @@ class List extends Component {
                 {
                     Data.bokeListData.map((item, key) => {
                         return(
-                            <Card bordered={true} hoverable={true} style={{margin:'0 0 30px 0',borderRadius:4}}>
-                                <Row key={key}>
+                            <Card key={key} bordered={true} hoverable={true} style={{margin:'0 0 30px 0',borderRadius:4}}>
+                                <Row>
                                     <Col span={18}>
                                         <p>{item.title}</p>
                                         <p>{item.content}</p>

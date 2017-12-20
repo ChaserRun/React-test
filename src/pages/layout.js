@@ -8,7 +8,7 @@ import './layout.css';
 const Search = Input.Search;
 const { Header, Content, Footer } = Layout;
 
-class layout extends Component {
+class CommonLayout extends Component {
 
     defaultOptions = {
         defaultSelectedKeys:'1'
@@ -57,7 +57,7 @@ class layout extends Component {
                         </Row>
                     </Header>
                     <Content style={{padding: '50px'}}>
-                        { this.props.children }
+                        {this.props.children}
                     </Content>
                     <Footer style={{textAlign: 'center'}}>
                         Ant Design ©2016 Created by Ant UED
@@ -68,4 +68,5 @@ class layout extends Component {
     }
 }
 
-export default connect(state => state)(layout);
+
+export default CommonLayout;

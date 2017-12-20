@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { HashRouter, Switch, Route, HashRouter as Router } from 'react-router-dom';
-import Layout from './pages/layout';
+import { Switch, Route, HashRouter as Router } from 'react-router-dom';
+import CommonLayout from './pages/layout';
 import Index from './pages/indexPage'
 import TechnicalStation from './pages/technicalStation';
 import Tool from './pages/tool';
@@ -8,16 +8,19 @@ import Tool from './pages/tool';
 
 class Routers extends Component {
     render() {
+        console.log('props===>', this);
         return (
-            <Router>
-                <Layout>
-                    <Switch>
-                        <Route exact path={'/'} component={Index} />
-                        <Route path={'/technicalStation'} component={TechnicalStation} />
-                        <Route path={'/tool'} component={Tool} />
-                    </Switch>
-                </Layout>
-            </Router>
+            <div>
+                <Router>
+                    <CommonLayout>
+                        <Switch>
+                            <Route path={'/'} exact component={Index} />
+                            <Route path={'/technicalStation'} component={TechnicalStation} />
+                            <Route path={'/tool'} component={Tool} />
+                        </Switch>
+                    </CommonLayout>
+                </Router>
+            </div>
         );
     }
 }

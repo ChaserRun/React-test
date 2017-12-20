@@ -6,7 +6,7 @@ import thunk from 'redux-thunk';
 import Reducers from './reducers/index';
 
 import Routers from './routes';
-import registerServiceWorker from './registerServiceWorker';
+//import registerServiceWorker from './registerServiceWorker';
 
 const middleware = [thunk];
 const store = createStore(Reducers, applyMiddleware(...middleware));
@@ -15,4 +15,4 @@ ReactDOM.render(
     <Provider store={store}>
         <Routers />
     </Provider>, document.getElementById('root'));
-registerServiceWorker();
+//registerServiceWorker();
