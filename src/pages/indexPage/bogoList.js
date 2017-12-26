@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { Row, Col, Card } from 'antd';
+import { Row, Col, Card, Input, Pagination } from 'antd';
 import * as Data from  './data';
+
+const Search = Input.Search;
 
 class List extends Component {
     render () {
@@ -12,7 +14,12 @@ class List extends Component {
                         <Col span={3}>提问</Col>
                         <Col span={3}>回答</Col>
                         <Col span={3}>写博客</Col>
-                        <Col span={9}></Col>
+                        <Col span={15} style={{textAlign: 'right'}}>
+                            <Search
+                                placeholder="请输入关键字"
+                                style={{ width: 280 }}
+                            />
+                        </Col>
                     </Row>
                 </Card>
                 {
@@ -31,6 +38,7 @@ class List extends Component {
                         )
                     })
                 }
+                <Pagination showSizeChanger showQuickJumper defaultCurrent={2} total={50}></Pagination>
             </div>
         )
     }

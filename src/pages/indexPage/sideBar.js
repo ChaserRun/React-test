@@ -32,6 +32,7 @@ const SideBar = ({ writerList = {}}) => {
                     renderItem={item => (<List.Item key={item.userId}>{writeList(item)}</List.Item>)}
                 />
             </Card>
+            <Card key={'hot'}  bordered={true} hoverable={true} style={{margin:'0 0 30px 0',borderRadius:4}}>热门博客</Card>
             <Card key={'ad'} bordered={true} hoverable={true} style={{margin:'0 0 30px 0',borderRadius:4}}>
                 广告位
             </Card>

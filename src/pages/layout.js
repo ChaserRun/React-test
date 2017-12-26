@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Layout, Menu, Row, Col, Button, Input } from 'antd';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import IndexContent from '../pages/indexPage/index';
 import './layout.css';
 
 const Search = Input.Search;
@@ -24,10 +23,12 @@ class CommonLayout extends Component {
                 <Layout className="layout" style={{background:'#f3f3f3'}}>
                     <Header>
                         <Row style={{width:1200,margin:'0 auto'}}>
-                            <Col span={3}><div className="logo" style={{color:'#fff', fontSize:'16px'}}>起航博客</div></Col>
+                            <Col span={3}>
+                                <Link to={'/'}><div className="logo" style={{color:'#fff', fontSize:'16px'}}>起航博客</div></Link>
+                            </Col>
                             <Col span={15}>
                                 <Row>
-                                    <Col span={12}>
+                                    <Col span={24}>
                                         <Menu
                                             onClick={(e) => this.selectNav(e)}
                                             theme="dark"
@@ -39,12 +40,6 @@ class CommonLayout extends Component {
                                             <Menu.Item key="2"><Link to={'/technicalStation'}>技术站</Link></Menu.Item>
                                             <Menu.Item key="3"><Link to={'/tool'}>工具</Link></Menu.Item>
                                         </Menu>
-                                    </Col>
-                                    <Col span={12} style={{textAlign: 'right'}}>
-                                        <Search
-                                            placeholder="请输入关键字"
-                                            style={{ width: 280 }}
-                                        />
                                     </Col>
                                 </Row>
                             </Col>

@@ -153,7 +153,7 @@ module.exports = {
                 plugins: [
                     //['react-html-attrs'],//添加babel-plugin-react-html-attrs组件的插件配置
                     // 引入样式为 css
-                    ['import', { libraryName: 'antd', style: "css" }],
+                    ['import', { libraryName: 'antd', style: true }],
                     // 改动: 引入样式为 less
                     //['import', { libraryName: 'antd', style: true }],
                 ],
@@ -173,7 +173,7 @@ module.exports = {
           // use the "style" loader inside the async code so CSS from them won't be
           // in the main CSS file.
           {
-            test: /\.css$/,
+            test: /\.(css|less)$/,
             loader: ExtractTextPlugin.extract(
               Object.assign(
                 {
@@ -212,6 +212,9 @@ module.exports = {
                         ],
                       },
                     },
+                    {
+                      loader: require.resolve('less-loader') // compiles Less to CSS
+                    }
                   ],
                 },
                 extractTextPluginOptions
@@ -229,7 +232,7 @@ module.exports = {
             // it's runtime that would otherwise processed through "file" loader.
             // Also exclude `html` and `json` extensions so they get processed
             // by webpacks internal loaders.
-            exclude: [/\.js$/, /\.html$/, /\.json$/],
+            exclude: [/\.js$/, /\.html$/, /\.json$/, /\.(css|less)$/],
             options: {
               name: 'static/media/[name].[hash:8].[ext]',
             },

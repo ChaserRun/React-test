@@ -1,14 +1,34 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Row, Col } from 'antd';
+import { Row, Col, Card } from 'antd';
+import './index.less';
+import { listNavData } from "./data";
 
 class TechnicalStation extends Component {
     render () {
-        console.log('技术栈===>', this.props);
+        // console.log('技术栈===>', listNavData);
         return (
-            <Row>
-                <Col>TechnicalStation</Col>
-            </Row>
+            <div className="technicalStation">
+                <Row>
+                    {
+                        listNavData.map((item, key) => {
+                            // console.log('=====>', item);
+                            return  (
+                                <Col key={item.id} span={6}>
+                                    <Link to={'/'}>
+                                        <Card className="listCard" key={key} bordered={true} hoverable={true}>
+                                            <div className="photo">{item.img}</div>
+                                            <h5 className="title">{item.title}</h5>
+                                            <p className="detail">{item.content}</p>
+                                        </Card>
+                                    </Link>
+                                </Col>
+                            )
+                        })
+                    }
+                </Row>
+            </div>
         )
     }
 }
