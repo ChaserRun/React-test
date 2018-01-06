@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { Row, Col, Card, Input, Pagination } from 'antd';
-import * as Data from  './data';
+import moment from 'moment';
+// import * as Data from  './data';
 
 const Search = Input.Search;
 
 class List extends Component {
     render () {
         //console.log('Data=====>', Data.bokeListData);
+        const blogList = this.props.blogList || {};
         return (
             <div>
                 <Card bordered={true} hoverable={true} style={{margin:'0 0 30px 0',borderRadius:4}}>
@@ -23,14 +25,14 @@ class List extends Component {
                     </Row>
                 </Card>
                 {
-                    Data.bokeListData.map((item, key) => {
+                    (blogList.data || []).map((item, key) => {
                         return(
                             <Card key={key} bordered={true} hoverable={true} style={{margin:'0 0 30px 0',borderRadius:4}}>
                                 <Row>
                                     <Col span={18}>
                                         <p>{item.title}</p>
-                                        <p>{item.content}</p>
-                                        <p>{item.time}</p>
+                                        <p>{item.text}</p>
+                                        <p>{moment(item.createtime*1000).format('YYYY-MM-DD')}</p>
                                     </Col>
                                     <Col span={6}>图片</Col>
                                 </Row>
@@ -38,7 +40,7 @@ class List extends Component {
                         )
                     })
                 }
-                <Pagination showSizeChanger showQuickJumper defaultCurrent={2} total={50}></Pagination>
+                <Pagination showSizeChanger showQuickJumper defaultCurrent={blogList.current} total={blogList.rows}></Pagination>
             </div>
         )
     }

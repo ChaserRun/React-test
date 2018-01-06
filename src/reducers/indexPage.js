@@ -1,14 +1,15 @@
 import * as TYPE from '../actions/type';
 
-const IndexData = (state = {}, action) => {
-    console.log('reducers===>', action);
+const BlogList = (state = {}, action) => {
     switch (action.type) {
-        case TYPE.INDEX:
+        case TYPE.BLOGLIST:
             return Object.assign({}, state, action.data);
             break;
+        case TYPE.HOTBLOGLIST:
+            return Object.assign({}, state, action.data);
         default:
             return state
     }
 }
 
-export default IndexData;
+export default BlogList;

@@ -1,9 +1,11 @@
 import React from 'react';
 import { Row, Col, Card, List } from 'antd';
+import { Link } from 'react-router-dom';
 
 
-const SideBar = ({ writerList = {}}) => {
+const SideBar = ({ writerList={}, hotBlog={}}) => {
 
+    // const hotBlogList = hotBlog.data.rows || [];
     const writeList = (item) => {
         return (
             <Row style={{width:'100%'}}>
@@ -32,7 +34,9 @@ const SideBar = ({ writerList = {}}) => {
                     renderItem={item => (<List.Item key={item.userId}>{writeList(item)}</List.Item>)}
                 />
             </Card>
-            <Card key={'hot'}  bordered={true} hoverable={true} style={{margin:'0 0 30px 0',borderRadius:4}}>热门博客</Card>
+            <Card key={'hot'}  bordered={true} hoverable={true} style={{margin:'0 0 30px 0',borderRadius:4}}>
+                热门博客
+            </Card>
             <Card key={'ad'} bordered={true} hoverable={true} style={{margin:'0 0 30px 0',borderRadius:4}}>
                 广告位
             </Card>
