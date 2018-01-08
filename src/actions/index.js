@@ -17,22 +17,35 @@ export const hotBlog = (data) => {
     }
 }
 
+//获取blogList
 export const fetchBlogList = (params = {}) => {
     return fetch.getData(API.getBlogList, params).then(data => {
-        if (data && data.code == 1) {
+        if (data && data.code === 1) {
             return data.data;
         } else {
-            return message.error(data.msg);
+            message.error(data.msg);
         }
     })
 }
 
+//获取hotBlogList
 export const fetchHotBlog = (params = {}) => {
     return fetch.getData(API.getHotBlogList, params).then(data => {
-        if( data && data.code == 1 ){
+        if( data && data.code === 1 ){
             return data;
         } else {
-            return message.error(data.msg);
+            message.error(data.msg);
+        }
+    })
+}
+
+//筛选
+export const fetchSearchBlog = (params ={}) => {
+    return fetch.getData(API.searchBlog, params).then(data => {
+        if (data && data.code === 1) {
+            return data.data;
+        } else {
+            message.error(data.msg)
         }
     })
 }

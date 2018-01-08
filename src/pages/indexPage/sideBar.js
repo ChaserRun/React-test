@@ -27,7 +27,7 @@ const SideBar = ({ writerList={}, hotBlog={}}) => {
                 <span className={'tag'}>Web前端</span>
             </Card>
             <Card key={'list'} bordered={true} hoverable={true} style={{margin:'0 0 30px 0',borderRadius:4}}>
-                <h5>推荐作者</h5>
+                <h3>推荐作者</h3>
                 <List
                     split={false}
                     dataSource={writerList}
@@ -35,7 +35,7 @@ const SideBar = ({ writerList={}, hotBlog={}}) => {
                 />
             </Card>
             <Card key={'hot'}  bordered={true} hoverable={true} style={{margin:'0 0 30px 0',borderRadius:4}}>
-                热门博客
+                <h3>热门博客</h3>
             </Card>
             <Card key={'ad'} bordered={true} hoverable={true} style={{margin:'0 0 30px 0',borderRadius:4}}>
                 广告位

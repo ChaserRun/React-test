@@ -1,0 +1,15 @@
+/* 文本移出控制 */
+.text {
+  position:relative;
+  max-height:72px;
+  overflow:hidden;
+  line-height: 24px;
+}
+.text:after {
+  content:"...";
+  position:absolute;
+  bottom:0;
+  right:0;
+  background:#FFF;
+  padding-left:0.2em;
+}
