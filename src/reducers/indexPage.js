@@ -7,6 +7,8 @@ const BlogList = (state = {}, action) => {
             break;
         case TYPE.HOTBLOGLIST:
             return Object.assign({}, state, action.data);
+        case TYPE.AUTHORLIST:
+            return Object.assign({}, state, action.data);
         default:
             return state
     }

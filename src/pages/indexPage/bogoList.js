@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, Card, Input, Pagination } from 'antd';
+import { Row, Col, Card, Input, Pagination, Icon } from 'antd';
 import moment from 'moment';
 import './bogoList.less';
 
@@ -16,9 +16,8 @@ class List extends Component {
                 <Card bordered={true} hoverable={true} style={{margin:'0 0 30px 0',borderRadius:4}}>
                     <Row>
                         <Col span={3}>提问</Col>
-                        <Col span={3}>回答</Col>
                         <Col span={3}>写博客</Col>
-                        <Col span={15} style={{textAlign: 'right'}}>
+                        <Col span={18} style={{textAlign: 'right'}}>
                             <Search
                                 placeholder="请输入关键字"
                                 style={{ width: 280 }}
@@ -36,10 +35,15 @@ class List extends Component {
                                         <div style={{width: 540}}>
                                             <h3>{item.title}</h3>
                                             <p className={'text'}>{item.text}</p>
+                                            <p>
+                                                <span>{item.evaluate ? item.evaluate.praise : 0}</span>
+                                                <span>{item.readCount ? item.readCount.readNum : 0}</span>
+                                                <span>{item.review || 0}</span>
+                                            </p>
                                             <p>{moment(item.createtime*1000).format('YYYY-MM-DD')}</p>
                                         </div>
                                     </Col>
-                                    <Col span={6}>图片</Col>
+                                    <Col span={6}><img src={item.thumbnail ? 'http://blog.okgoes.com/' + item.thumbnail : null} alt=""/></Col>
                                 </Row>
                             </Card>
                         )

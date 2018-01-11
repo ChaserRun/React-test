@@ -17,6 +17,13 @@ export const hotBlog = (data) => {
     }
 }
 
+export const authorList = (data) => {
+    return {
+        type: TYPE.AUTHORLIST,
+        data: data
+    }
+}
+
 //获取blogList
 export const fetchBlogList = (params = {}) => {
     return fetch.getData(API.getBlogList, params).then(data => {
@@ -32,14 +39,26 @@ export const fetchBlogList = (params = {}) => {
 export const fetchHotBlog = (params = {}) => {
     return fetch.getData(API.getHotBlogList, params).then(data => {
         if( data && data.code === 1 ){
-            return data;
+            return data.data;
         } else {
             message.error(data.msg);
         }
     })
 }
 
-//筛选
+//获取作者列表
+export const fetchAuthorList = (params = {}) => {
+    return fetch.getData(API.getAuthorList, params).then(data => {
+        if( data && data.code === 1 ){
+            return data.data;
+        } else {
+            message.error(data.msg);
+        }
+    })
+
+}
+
+//搜索
 export const fetchSearchBlog = (params ={}) => {
     return fetch.getData(API.searchBlog, params).then(data => {
         if (data && data.code === 1) {

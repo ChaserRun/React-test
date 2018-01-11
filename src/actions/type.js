@@ -2,6 +2,7 @@
 export const INDEX = 'INDEX';
 export const BLOGLIST = 'BLOGLIST';
 export const HOTBLOGLIST = 'HOTBLOGLIST';
+export const AUTHORLIST = 'AUTHORLIST'
 
 //工具
 export const TOOL = 'TOOL';

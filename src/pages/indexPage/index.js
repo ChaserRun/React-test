@@ -17,6 +17,12 @@ class IndexContent extends Component {
         keyword: ''
     }
 
+    componentDidMount () {
+        this.getBlogList();
+        this.getHotBlogList();
+        this.getAuthorList()
+    }
+
     //获取博客列表
     getBlogList = (params = this.defaultOptions) => {
         ACTIONS.fetchBlogList(params).then(data => {
@@ -31,9 +37,11 @@ class IndexContent extends Component {
         })
     }
 
-    componentDidMount () {
-        this.getBlogList();
-        this.getHotBlogList();
+    //获取作者列表
+    getAuthorList = (params = {}) => {
+        ACTIONS.fetchAuthorList(params).then(data => {
+            this.props.dispatch(ACTIONS.authorList({authorList: data}))
+        })
     }
 
     //翻页
@@ -47,13 +55,13 @@ class IndexContent extends Component {
     handleSearch = (value) => {
         this.defaultOptions.keyword = value;
         ACTIONS.fetchSearchBlog(this.defaultOptions).then(data => {
-            this.props.dispatch(ACTIONS.hotBlog({hotBlog: data}));
+            this.props.dispatch(ACTIONS.blogList({blogList: data}))
         })
     }
 
     render () {
         console.log('首页===>', this.props);
-        const { blogList={}, hotBlog={} } = this.props;
+        const { blogList, hotBlog, authorList }  = this.props;
         return (
             <Row className={'bogoList'} style={{width:1200,margin:'0 auto'}}>
                 <Col span={16}>
@@ -66,8 +74,8 @@ class IndexContent extends Component {
                 <Col span={8}>
                     <div style={{paddingLeft:30}}>
                         <SideBar
-                            writerList={Data.sideData}
-                            hotBlog={hotBlog}
+                            writerList={this.props.authorList}
+                            hotBlog={this.props.hotBlog}
                         />
                     </div>
                 </Col>
