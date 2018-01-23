@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom';
 import axios from 'axios';
 //import qs from 'qs';
 import { message } from 'antd';
@@ -26,7 +26,12 @@ export const postData = (url, params, msg = '请求异常') => {
     return axios.post(url, params).then((res) => {
         loadingReduce();
 
-        return res.data;
+        if (res.code == 402) {
+            //未登录跳转到登录页
+        } else {
+            return res.data;
+        }
+
     }).catch((err) => {
         loadingReduce();
         console.log(err);
@@ -40,7 +45,13 @@ export const getData = (url, params, msg = '请求异常') => {
     return axios.get(url, {params: params}).then((res) => {
         loadingReduce();
 
-        return res.data;
+        if (res.code == 402) {
+            //未登录跳转到登录页
+        } else {
+            return res.data;
+        }
+
+
     }).catch((err) => {
         loadingReduce();
         console.log(err);
