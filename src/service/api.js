@@ -7,6 +7,9 @@ const API = {
     searchBlog: `${TOAPI}/blog/search`, //搜索博客
     getAuthorList: `${TOAPI}/blog/author`, //获取作者列表
 
+    //blog detail
+    getBlogContent: `${TOAPI}/blog/detail`, //获取博客详情
+    getCommentList: `${TOAPI}`, //获取评论列表
 }
 
 export default API;

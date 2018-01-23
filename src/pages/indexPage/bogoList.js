@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { Row, Col, Card, Input, Pagination, Icon } from 'antd';
 import moment from 'moment';
 import './bogoList.less';
@@ -30,21 +31,21 @@ class List extends Component {
                     (blogList.data || []).map((item, key) => {
                         return(
                             <Card key={key} bordered={true} hoverable={true} style={{margin:'0 0 30px 0',borderRadius:4}}>
-                                <Row>
-                                    <Col span={18}>
-                                        <div style={{width: 540}}>
-                                            <h3>{item.title}</h3>
-                                            <p className={'text'}>{item.text}</p>
-                                            <p>
-                                                <span>{item.evaluate ? item.evaluate.praise : 0}</span>
-                                                <span>{item.readCount ? item.readCount.readNum : 0}</span>
-                                                <span>{item.review || 0}</span>
-                                            </p>
-                                            <p>{moment(item.createtime*1000).format('YYYY-MM-DD')}</p>
-                                        </div>
-                                    </Col>
-                                    <Col span={6}><img src={item.thumbnail ? 'http://blog.okgoes.com/' + item.thumbnail : null} alt=""/></Col>
-                                </Row>
+                                    <Row>
+                                        <Col span={18}>
+                                            <div style={{width: 540}}>
+                                                <Link to={'/detail/' + item.id}><h3>{item.title}</h3></Link>
+                                                <p className={'text'}>{item.text}</p>
+                                                <p>
+                                                    <span>{item.evaluate ? item.evaluate.praise : 0}</span>
+                                                    <span>{item.readCount ? item.readCount.readNum : 0}</span>
+                                                    <span>{item.review || 0}</span>
+                                                </p>
+                                                <p>{moment(item.createtime*1000).format('YYYY-MM-DD')}</p>
+                                            </div>
+                                        </Col>
+                                        <Col span={6}><img src={item.thumbnail ? 'http://blog.okgoes.com/' + item.thumbnail : null} alt=""/></Col>
+                                    </Row>
                             </Card>
                         )
                     })

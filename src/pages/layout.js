@@ -3,6 +3,7 @@ import { Layout, Menu, Row, Col, Button, Input } from 'antd';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './layout.css';
+import LoginModal from './component/login';
 
 const Search = Input.Search;
 const { Header, Content, Footer } = Layout;
@@ -17,7 +18,15 @@ class CommonLayout extends Component {
             defaultSelectedKeys: e.key
         })
     }
+
+    login = () => {
+        this.refs.login.showModal();
+    }
+
     render () {
+
+        console.log('this.props===>', this.props);
+
         return (
             <div>
                 <Layout className="layout" style={{background:'#f3f3f3'}}>
@@ -45,11 +54,12 @@ class CommonLayout extends Component {
                             </Col>
                             <Col span={6}>
                                 <div style={{textAlign:'center'}}>
-                                    <Button className={'button'} type={'primary'}>立即登录</Button>
+                                    <Button className={'button'} type={'primary'} onClick={() => {this.login()}}>立即登录</Button>
                                     <Button className={'button'} type={'primary'}>立即注册</Button>
                                 </div>
                             </Col>
                         </Row>
+                        <LoginModal ref={'login'} />
                     </Header>
                     <Content style={{padding: '50px'}}>
                         {this.props.children}
