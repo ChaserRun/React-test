@@ -15,10 +15,10 @@ const loadingPlus = () => {
 const loadingReduce = () => {
     loadingCount = loadingCount - 1;
 
-    if (loadingCount == 0) {
+    if (loadingCount === 0) {
         let result = ReactDOM.unmountComponentAtNode(document.getElementById('loading'));
     }
-}
+};
 
 export const postData = (url, params, msg = '请求异常') => {
     loadingPlus();
@@ -26,7 +26,7 @@ export const postData = (url, params, msg = '请求异常') => {
     return axios.post(url, params).then((res) => {
         loadingReduce();
 
-        if (res.code == 402) {
+        if (res.code === 402) {
             //未登录跳转到登录页
         } else {
             return res.data;
@@ -45,7 +45,7 @@ export const getData = (url, params, msg = '请求异常') => {
     return axios.get(url, {params: params}).then((res) => {
         loadingReduce();
 
-        if (res.code == 402) {
+        if (res.code === 402) {
             //未登录跳转到登录页
         } else {
             return res.data;

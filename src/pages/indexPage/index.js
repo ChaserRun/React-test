@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Menu, Row, Col } from 'antd';
+import { Row, Col } from 'antd';
 import * as ACTIONS from '../../actions/index';
-import * as Data from './data';
 import './index.css';
 import List from './bogoList';
 import SideBar from './sideBar';
@@ -61,7 +59,7 @@ class IndexContent extends Component {
 
     render () {
         console.log('首页===>', this.props);
-        const { blogList, hotBlog, authorList }  = this.props;
+        const { blogList }  = this.props;
         return (
             <Row className={'bogoList'} style={{width:1200,margin:'0 auto'}}>
                 <Col span={16}>

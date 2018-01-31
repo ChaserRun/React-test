@@ -2,15 +2,13 @@ import React from 'react';
 import { Row, Col, Card, List } from 'antd';
 import { Link } from 'react-router-dom';
 
-
 const SideBar = ({ writerList={}, hotBlog={}}) => {
 
-    // const hotBlogList = hotBlog.data.rows || [];
     const writeList = (item) => {
         return (
             <Row style={{width:'100%'}}>
                 <Col key={'name'} span={18}>
-                    <img className={'photo'} src={'http://blog.okgoes.com/static/images/users/'+ item.avatar} alt={'photo'}/>
+                    <img className={'photo'} src={'http://blog.okgoes.com/static/images/users/'+ item.avatar} alt=""/>
                     <span>{item.userName}</span>
                 </Col>
                 <Col key={'button'} span={6}>+关注</Col>

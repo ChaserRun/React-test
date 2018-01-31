@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Row, Col, Card, Input, Pagination, Icon } from 'antd';
+import { Row, Col, Card, Input, Pagination } from 'antd';
 import moment from 'moment';
 import './bogoList.less';
 
