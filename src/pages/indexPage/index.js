@@ -58,7 +58,7 @@ class IndexContent extends Component {
     }
 
     render () {
-        console.log('首页===>', this.props);
+        // console.log('首页===>', this.props);
         const { blogList }  = this.props;
         return (
             <Row className={'bogoList'} style={{width:1200,margin:'0 auto'}}>
