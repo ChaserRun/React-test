@@ -7,7 +7,7 @@ class Tool extends Component {
         // console.log('工具===>', this.props);
         return (
             <Row>
-                <Col>tooltooltool</Col>
+                <Col>tool</Col>
             </Row>
         )
     }
